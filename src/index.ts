@@ -22,7 +22,7 @@ app.post('/', (req, res) => {
     hook.send(`**Type:** ${body.type}\n**Message:** ${body.message}\n**Version:** ${body.extVersion}`)
     res.status(200).send('OK')
   } catch (e) {
-    console.log(e)
+    console.error(e)
     res.status(400).send('Bad Request')
   }
 })
