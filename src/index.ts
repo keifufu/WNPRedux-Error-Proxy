@@ -17,7 +17,7 @@ const ReportBodySchema = z.object({
 app.post('/', (req, res) => {
   try {
     const body = ReportBodySchema.parse(req.body)
-    hook.setUsername('WNPRedux Error Reporter')
+    hook.setUsername('WNPRedux Reporter')
     hook.setAvatar(process.env.WEBHOOK_AVATAR_URl || '')
     hook.send(`**Type:** ${body.type}\n**Message:** ${body.message}\n**Version:** ${body.extVersion}`)
     res.status(200).send('OK')
@@ -27,4 +27,4 @@ app.post('/', (req, res) => {
   }
 })
 
-app.listen(process.env.PORT, () => console.log(`WNPRedux-Error-Proxy listening on port ${process.env.PORT}`))
+app.listen(process.env.PORT, () => console.log(`WNPRedux-Report-Proxy listening on port ${process.env.PORT}`))

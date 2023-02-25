@@ -1,7 +1,7 @@
 {
-  "name": "wnpredux-error-proxy",
+  "name": "wnpredux-report-proxy",
   "version": "1.0.0",
-  "description": "Proxies error reports received by [WebNowPlaying-Redux](https://github.com/keifufu/WebNowPlaying-Redux) to a Discord Webhook.\r This is meant to run behind nginx to configure SSL.",
+  "description": "Proxies reports received by [WebNowPlaying-Redux](https://github.com/keifufu/WebNowPlaying-Redux) to a Discord Webhook.\r This is meant to run behind nginx to configure SSL.",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
