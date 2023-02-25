@@ -1,0 +1,27 @@
+{
+  "name": "wnpredux-error-proxy",
+  "version": "1.0.0",
+  "description": "Proxies error reports received by [WebNowPlaying-Redux](https://github.com/keifufu/WebNowPlaying-Redux) to a Discord Webhook.\r This is meant to run behind nginx to configure SSL.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "nodemon --watch src --exec \"ts-node\" src/index.ts"
+  },
+  "dependencies": {
+    "discord-webhook-node": "^1.1.8",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "zod": "^3.20.6"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/node": "^18.14.1",
+    "nodemon": "^2.0.20",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.5"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
