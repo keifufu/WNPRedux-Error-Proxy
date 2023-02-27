@@ -6,6 +6,7 @@ import { z } from 'zod'
 dotenv.config()
 const hook = new Webhook(process.env.WEBHOOK_URL || '')
 const app = express()
+app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
 const ReportBodySchema = z.object({
@@ -14,7 +15,7 @@ const ReportBodySchema = z.object({
   extVersion: z.string(),
 })
 
-app.post('/', (req, res) => {
+app.post('/report', (req, res) => {
   try {
     const body = ReportBodySchema.parse(req.body)
     hook.setUsername('WNPRedux Reporter')
