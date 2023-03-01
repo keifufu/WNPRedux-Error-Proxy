@@ -15,9 +15,18 @@ const ReportBodySchema = z.object({
   extVersion: z.string(),
 })
 
+const cache: Record<string, string> = {}
+
 app.post('/report', (req, res) => {
   try {
     const body = ReportBodySchema.parse(req.body)
+    
+    if (body.type === 'automatic') {
+      const msg = `${body.extVersion} - ${body.message}`
+      if (cache[msg]) return res.status(200).send('OK')
+      cache[msg] = msg
+    }
+
     hook.setUsername('WNPRedux Reporter')
     hook.setAvatar(process.env.WEBHOOK_AVATAR_URl || '')
     hook.send(`**Type:** ${body.type}\n**Message:** ${body.message}\n**Version:** ${body.extVersion}`)
